@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,14 +17,10 @@ import android.widget.Toast;
 import com.com.unisc.unisceventclient.classes.LoginMO;
 import com.com.unisc.unisceventclient.classes.NavigationManager;
 import com.com.unisc.unisceventclient.classes.PessoaMO;
-import com.com.unisc.unisceventclient.methods.PessoaMT;
 import com.com.unisc.unisceventclient.methods.PessoaWS;
 import com.unisc.unisceventclient.R;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class PessoaActivity extends Activity {
 
@@ -89,7 +84,7 @@ public class PessoaActivity extends Activity {
             PessoaMO _newPessoa = new PessoaMO();
             _newPessoa.setEmail(m_edtEmail.getText().toString());
             _newPessoa.setMatricula(Integer.valueOf(m_edtMatricula.getText().toString()));
-            _newPessoa.setNome(m_edtNome.getText().toString());
+            _newPessoa.setNome_pessoa(m_edtNome.getText().toString());
 
             LoginMO _newLogin = new LoginMO();
             _newLogin.setNomeUsuario(m_edtNomeUsuario.getText().toString());
@@ -99,7 +94,7 @@ public class PessoaActivity extends Activity {
 
 
             //new PessoaMT(this).Salvar(_newPessoa);
-            new PessoaWS(this).insertPessoa(_newPessoa);
+            new PessoaWS(this).Salvar(_newPessoa);
 
             NavigationManager.PessoaLogada = _newPessoa;
 

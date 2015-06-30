@@ -5,44 +5,56 @@ package com.com.unisc.unisceventclient.classes;
  */
 public class PessoaMO {
 
-    private long ID;
-    private String Nome;
-    private String Email;
-    private long Matricula;
+
+    //[{"cod_pessoa":"28","nome_pessoa":"a","email":"a","senha":"a","scr_foto":null,"matricula":"4"}]
+
+    private long cod_pessoa;
+    private String nome_pessoa;
+    private String email;
+    private long senha;
+    private long matricula;
 
     private LoginMO Login;
 
 
     public long getMatricula() {
-        return Matricula;
+        return matricula;
     }
 
     public void setMatricula(long matricula) {
-        Matricula = matricula;
+        this.matricula = matricula;
+    }
+
+    public long getSenha() {
+        return senha;
+    }
+
+    public void setSenha(long senha) {
+        this.senha = senha;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
-    public String getNome() {
-        return Nome;
+    public String getNome_pessoa() {
+        return nome_pessoa;
     }
 
-    public void setNome(String nome) {
-        Nome = nome;
+    public void setNome_pessoa(String nome_pessoa) {
+        this.nome_pessoa = nome_pessoa;
     }
 
-    public long getID() {
-        return ID;
+    public long getCod_pessoa() {
+        return cod_pessoa;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setCod_pessoa(long cod_pessoa) {
+        this.cod_pessoa = cod_pessoa;
     }
 
     public LoginMO getLogin() {

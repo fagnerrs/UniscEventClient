@@ -34,7 +34,7 @@ public class ActionActivity extends Activity {
         m_tvResultQrCode = (TextView) this.findViewById(R.id.activity_action_TvResultQrode);
 
         m_tvUsuarioLogado.setText(String.valueOf(NavigationManager.PessoaLogada.getMatricula()) + " - " +
-                NavigationManager.PessoaLogada.getNome());
+                NavigationManager.PessoaLogada.getNome_pessoa());
     }
 
 

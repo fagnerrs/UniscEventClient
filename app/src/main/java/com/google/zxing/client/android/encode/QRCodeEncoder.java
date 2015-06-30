@@ -205,7 +205,7 @@ final class QRCodeEncoder {
     Result result = new Result(vcardString, vcard, null, BarcodeFormat.QR_CODE);
     ParsedResult parsedResult = ResultParser.parseResult(result);
     if (!(parsedResult instanceof AddressBookParsedResult)) {
-      throw new WriterException("Result was not an address");
+      throw new WriterException("LoginResult was not an address");
     }
     encodeQRCodeContents((AddressBookParsedResult) parsedResult);
     if (contents == null || contents.isEmpty()) {

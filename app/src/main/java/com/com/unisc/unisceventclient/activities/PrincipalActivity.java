@@ -11,13 +11,14 @@ import android.widget.Toast;
 
 import com.com.unisc.unisceventclient.classes.NavigationManager;
 import com.com.unisc.unisceventclient.classes.PessoaMO;
-import com.com.unisc.unisceventclient.methods.PessoaMT;
+import com.com.unisc.unisceventclient.methods.PessoaWS;
 import com.unisc.unisceventclient.R;
 
 public class PrincipalActivity extends Activity {
 
     private EditText m_EdtNomeUser;
     private EditText m_EdtNomeSenha;
+    private PessoaWS _pessoaWS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,20 +63,29 @@ public class PrincipalActivity extends Activity {
         if (m_EdtNomeSenha.getText().toString().equals("")){
             Toast.makeText(this, "Informe a senha!", Toast.LENGTH_LONG).show();
         }else {
+            _pessoaWS = new PessoaWS(this);
+            _pessoaWS.Login(m_EdtNomeUser.getText().toString(), m_EdtNomeSenha.getText().toString());
+            _pessoaWS.setLoginResult(new PessoaWS.IPessoaResult() {
+                @Override
+                public void SalvarResult(PessoaMO pessoa) {
+                }
 
-            PessoaMO _pessoaMO = new PessoaMT(this).Login(m_EdtNomeUser.getText().toString(), m_EdtNomeSenha.getText().toString());
+                @Override
+                public void LoginResult(PessoaMO pessoa) {
+                    if (pessoa != null) {
 
-            if (_pessoaMO != null) {
+                        NavigationManager.PessoaLogada = pessoa;
 
-                NavigationManager.PessoaLogada = _pessoaMO;
+                        Intent _int = new Intent(PrincipalActivity.this, ActionActivity.class);
+                        startActivity(_int);
+                    }
+                    else
+                    {
+                        Toast.makeText(PrincipalActivity.this, "Usuário não encontrado!", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
 
-                Intent _int = new Intent(this, ActionActivity.class);
-                startActivity(_int);
-            }
-            else
-            {
-                Toast.makeText(this, "Usuário não encontrado!", Toast.LENGTH_LONG).show();
-            }
         }
     }
 

@@ -18,7 +18,7 @@ import java.util.Date;
  */
 public class PessoaMT {
 
-    public SQLiteDatabase m_DataBase = null;
+  /*  public SQLiteDatabase m_DataBase = null;
     public DataBaseEngine m_dbEngine = null;
 
     public PessoaMT(Context context)
@@ -31,7 +31,7 @@ public class PessoaMT {
         ContentValues _values = new ContentValues();
 
         //_values.put("id", value.getID());
-        _values.put("nome", value.getNome());
+        _values.put("nome", value.getNome_pessoa());
         _values.put("email", value.getEmail());
         _values.put("matricula", value.getMatricula());
 
@@ -87,8 +87,8 @@ public class PessoaMT {
         while (_cursorPedidos.moveToNext()) {
 
             _resp = new PessoaMO();
-            _resp.setID(_cursorPedidos.getLong(0));
-            _resp.setNome(_cursorPedidos.getString(1));
+            _resp.setCod_pessoa(_cursorPedidos.getLong(0));
+            _resp.setNome_pessoa(_cursorPedidos.getString(1));
             _resp.setMatricula(_cursorPedidos.getLong(2));
             _resp.setEmail(_cursorPedidos.getString(3));
 
@@ -99,5 +99,5 @@ public class PessoaMT {
 
         return _resp;
     }
-
+*/
 }

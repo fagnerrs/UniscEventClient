@@ -19,6 +19,7 @@ import com.com.unisc.unisceventclient.classes.LoginMO;
 import com.com.unisc.unisceventclient.classes.NavigationManager;
 import com.com.unisc.unisceventclient.classes.PessoaMO;
 import com.com.unisc.unisceventclient.methods.PessoaMT;
+import com.com.unisc.unisceventclient.methods.PessoaWS;
 import com.unisc.unisceventclient.R;
 
 import java.io.ByteArrayOutputStream;
@@ -97,7 +98,8 @@ public class PessoaActivity extends Activity {
             _newPessoa.setLogin(_newLogin);
 
 
-            new PessoaMT(this).Salvar(_newPessoa);
+            //new PessoaMT(this).Salvar(_newPessoa);
+            new PessoaWS(this).insertPessoa(_newPessoa);
 
             NavigationManager.PessoaLogada = _newPessoa;
 

@@ -157,6 +157,7 @@ public class PessoaWS {
                 URL url= null;
                 URI uri = null;
                 try {
+
                     url = new URL(_builderURL.toString());
                     uri = new URI(url.getProtocol(), url.getUserInfo(), url.getHost(), url.getPort(), url.getPath(), url.getQuery(), url.getRef());
                 } catch (MalformedURLException e) {
